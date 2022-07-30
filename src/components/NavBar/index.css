@@ -14,6 +14,7 @@
 
 .score-box {
   display: flex;
+  justify-content: flex-end;
 }
 .score-value {
   color: #ffffff;

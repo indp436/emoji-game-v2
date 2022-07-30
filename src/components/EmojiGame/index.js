@@ -29,12 +29,14 @@ class EmojiGame extends Component {
 
   clickedOnEmoji = id => {
     const {list, score, topScore} = this.state
-
-    if (list.includes(id)) {
-      this.setState({isGameOver: true})
+    if (score > 11 && list.includes(id)) {
+      this.setState({score: 12, topScore: 12, isGameOver: true})
+      console.log('triggred at list includes')
+    } else if (list.includes(id)) {
       if (score > topScore) {
         this.setState({topScore: score})
       }
+      this.setState({isGameOver: true})
     } else {
       this.setState(prevState => ({
         list: [...prevState.list, id],
@@ -49,21 +51,20 @@ class EmojiGame extends Component {
 
   render() {
     const {score, topScore, isGameOver} = this.state
-
     const shuffledEmojisList = () => {
       const {emojisList} = this.props
       return emojisList.sort(() => Math.random() - 0.5)
     }
 
-    if (isGameOver) {
+    if (score > 11 || isGameOver) {
       const resultImg =
         score > 11
           ? 'https://assets.ccbp.in/frontend/react-js/won-game-img.png'
           : 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
 
-      const gameResultText = score > 11 ? 'You Won' : 'You Loose'
+      const gameResultText = score > 11 ? 'You Won' : 'You Lose'
       const scoreTextHeading = score > 11 ? 'Best Score' : 'Your Score'
-      const resultImageAlt = score > 11 ? 'won' : 'loose'
+      const resultImageAlt = score > 11 ? 'win' : 'lose'
       return (
         <div className="bg">
           <div className="game-container">
@@ -77,11 +78,11 @@ class EmojiGame extends Component {
             <div className="result-card">
               <div className="left-container">
                 <h1 className="You-loose">{gameResultText}</h1>
-                <h3 className="loose-score-heading">
+                <p className="loose-score-heading">
                   {scoreTextHeading}
                   <br />
-                  <span className="span">{score}/12</span>
-                </h3>
+                  <p className="span">{score}/12</p>
+                </p>
                 <button
                   className="play-again-loose-game-button"
                   type="button"
