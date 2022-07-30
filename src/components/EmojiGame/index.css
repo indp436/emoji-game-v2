@@ -1,0 +1,61 @@
+.bg {
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.game-container {
+  width: 700px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.emoji-inside-container {
+  display: flex;
+  max-width: 700px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.result-card {
+  display: flex;
+  margin-top: 50px;
+  height: 350px;
+  width: 450px;
+  border: 1px solid #ffffff30;
+  background-color: #ffffff33;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+}
+.span {
+  color: #6a59ff;
+  text-align: center;
+  padding-left: 20px;
+}
+.play-again-loose-game-button {
+  outline: 0;
+  cursor: pointer;
+  background-color: #ffce27;
+  border: 10px;
+  border: 0;
+  height: 35px;
+  width: 100px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.result-image {
+  height: 250px;
+  width: 200px;
+}
+.right-container {
+  margin-left: 10px;
+}
